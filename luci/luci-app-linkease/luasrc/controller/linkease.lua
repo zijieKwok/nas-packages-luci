@@ -5,11 +5,11 @@ function index()
 		return
 	end
 
-	entry({"admin", "services", "linkease"}, cbi("linkease"), _("LinkEase"), 20).dependent = true
+	entry({"admin", "nas", "linkease"}, cbi("linkease"), _("LinkEase"), 20).dependent = true
 
-	entry({"admin", "services", "linkease_status"}, call("linkease_status"))
+	entry({"admin", "nas", "linkease_status"}, call("linkease_status"))
 
-	entry({"admin", "services", "linkease", "file"}, call("linkease_file_template")).leaf = true
+	entry({"admin", "nas", "linkease", "file"}, call("linkease_file_template")).leaf = true
 
 end
 
@@ -29,7 +29,7 @@ end
 
 function get_params(name)
     local data = {
-        prefix=luci.dispatcher.build_url(unpack({"admin", "services", "linkease", name})),
+        prefix=luci.dispatcher.build_url(unpack({"admin", "nas", "linkease", name})),
     }
     return data
 end
